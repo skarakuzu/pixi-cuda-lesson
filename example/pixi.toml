@@ -1,0 +1,26 @@
+[workspace]
+authors = ["skarakuzu <karakuzu.seher@gmail.com>"]
+channels = ["conda-forge"]
+name = "example"
+platforms = ["linux-64", "osx-64", "win-64"]
+version = "0.1.0"
+
+[tasks.lab]
+cmd = "jupyter lab"
+description = "Start jupyterlab"
+
+[tasks.start]
+depends-on = ["lab"]
+description = "Start exploring"
+
+[dependencies]
+python = ">=3.13.5,<3.14"
+numpy = ">=2.3.2,<3"
+notebook = ">=7.4.5,<8"
+jupyterlab = ">=4.4.5,<5"
+
+[feature.dev.dependencies]
+pre-commit = ">=4.3.0,<5"
+
+[environments]
+dev = ["dev"]
